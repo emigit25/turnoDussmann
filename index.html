@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Turnos</title>
+    <link rel="stylesheet" href="https://github.com/emigit25/turnoDussmann/blob/main/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <aside class="sidebar">
+        <img src="imagenes/empleado.jpg" alt="Foto del empleado">
+        <h2>Maritza Hoyos</h2>
+        <p>Área: Pronto Socorro</p>
+    </aside>
+
+    <main class="content">
+        <!-- Nuevo título agregado -->
+        <h1 class="hospital-title">OSPEDALE CARATE BRIANZA</h1>
+        <h2 class="week-title">TURNI SETTIMANALE</h2>
+        <div class="divider"></div> <!-- Línea roja divisoria -->
+
+        <table>
+            <thead>
+            <tr>
+                <th>Giorno</th>
+                <th>Ore</th>
+                <th>Reparto</th>
+                <th>Compiti</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>Lunedì</td><td>06:00 - 07:00</td><td>Radiologia</td><td></td></tr>
+            <tr><td></td><td>07:00 - 08:00</td><td>Pronto Soccorso</td><td>🔹 Sala Gessi 🔹 Sala parto</td></tr>
+            <tr><td>Martedì</td><td>07:00 - 08:00</td><td>Pronto Soccorso</td><td></td></tr>
+            <tr><td>Mercoledì</td><td>06:00 - 07:00</td><td>Radiologia</td><td></td></tr>
+            <tr><td>Giovedì</td><td>07:00 - 08:00</td><td>Pronto Soccorso</td><td></td></tr>
+            <tr><td>Venerdì</td><td>06:00 - 07:00</td><td>Radiologia</td><td></td></tr>
+            <tr><td>Sabato</td><td>07:00 - 08:00</td><td>Pronto Soccorso</td><td></td></tr>
+            <tr><td>Domenica</td><td colspan="3"></td></tr>
+            </tbody>
+        </table>
+    </main>
+</div>
+
+<button class="export-btn" onclick="exportarPDF()">📄 Exportar PDF</button>
+
+<script>
+    function exportarPDF() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        doc.text("Reporte de Turnos", 20, 20);
+        doc.text("Maritza Hoyos - Hospital", 20, 30);
+        doc.text("Ver tabla en el sistema para más detalles.", 20, 40);
+        doc.save("Reporte_Turnos.pdf");
+    }
+</script>
+
+</body>
+</html>
